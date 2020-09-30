@@ -1,5 +1,6 @@
 import React from 'react';
 import BetsContainer from './BetsContainer'
+import LoginRegister from './LoginRegister'
 
 class App extends React.Component {
 
@@ -18,6 +19,7 @@ class App extends React.Component {
       <div>
         <h1>Hello World</h1>
         <BetsContainer/>
+        <LoginRegister/>
       </div>
     );
   }
