@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-
+      loggedIn: false
     }
 
   }
@@ -18,8 +18,13 @@ class App extends React.Component {
     return (
       <div>
         <h1>Safe Bets App</h1>
+        {
+        this.state.loggedIn === true 
+        ?
         <BetsContainer/>
+        :
         <LoginRegister/>
+        }
       </div>
     );
   }
