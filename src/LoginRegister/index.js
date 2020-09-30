@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import './index.css'
 
 class LoginRegister extends React.Component {
 	constructor(props) {
@@ -27,20 +28,25 @@ class LoginRegister extends React.Component {
 		return(
 			<Router>
 				<form>
-					<input
-					label="Email Address"
-					type="text"
-					name="email"
-					onChange={this.handleChange}
-					value={this.state.email}
-					/>
-					<input
-					label="Password"
-					type="text"
-					name="password"
-					onChange={this.handleChange}
-					value={this.state.password}
-					/>
+				<h1>Login</h1>
+					<div>
+						Email Address<input
+						label="Email Address"
+						type="text"
+						name="email"
+						onChange={this.handleChange}
+						value={this.state.email}
+						/>
+					</div>
+					<div>
+						Password<input
+						label="Password"
+						type="text"
+						name="password"
+						onChange={this.handleChange}
+						value={this.state.password}
+						/>
+					</div>
 					<button>Submit</button>
 				</form>
 			</Router>
