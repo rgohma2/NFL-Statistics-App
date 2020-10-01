@@ -29,8 +29,8 @@ class LoginRegister extends React.Component {
 			<Router>
 				<form>
 				<h1>Login</h1>
-					<div>
-						Email Address<input
+					<div className='input'>
+						Email Address: <input
 						label="Email Address"
 						type="text"
 						name="email"
@@ -38,8 +38,8 @@ class LoginRegister extends React.Component {
 						value={this.state.email}
 						/>
 					</div>
-					<div>
-						Password<input
+					<div className='input'>
+						Password: <input
 						label="Password"
 						type="text"
 						name="password"
@@ -49,6 +49,9 @@ class LoginRegister extends React.Component {
 					</div>
 					<button>Submit</button>
 				</form>
+					{this.props.user}
+
+					<button onClick={this.props.signInWithGoogle}>Sign in with Google!</button>
 			</Router>
 		)
 	}
