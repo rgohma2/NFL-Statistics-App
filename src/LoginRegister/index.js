@@ -13,6 +13,7 @@ import firebaseConfig from '../firebase';
 
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 const firebaseAppAuth = firebaseApp.auth()
+// const db = firebaseApp.firestore()
 const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
 }
@@ -34,6 +35,11 @@ class LoginRegister extends React.Component {
 		})
 	}
 
+	handleSignUp = (event) => {
+		event.preventDefault()
+		console.log(this.state)
+	}
+
 	render() {
 		const {
 	      user,
@@ -52,7 +58,7 @@ class LoginRegister extends React.Component {
 					</div>
 					:
 					<div>
-						<form>
+						<form onSubmit={this.handleSignUp}>
 						<h1>Sign Up</h1>
 						<div className='input'>
 							Email Address: <input
