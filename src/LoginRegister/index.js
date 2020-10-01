@@ -25,7 +25,8 @@ class LoginRegister extends React.Component {
 
 		this.state = {
 			email: '',
-			password:''
+			password:'',
+			name:''
 		}
 	}
 
@@ -37,7 +38,23 @@ class LoginRegister extends React.Component {
 
 	handleSignUp = (event) => {
 		event.preventDefault()
-		console.log(this.state)
+		// console.log(this.state)
+		firebaseAppAuth.createUserWithEmailAndPassword(this.state.email, this.state.password)
+		.then(response => {
+			console.log(response)
+			const user = response.user
+			user.updateProfile({
+  				displayName: this.state.name
+ 			})
+		})
+	}
+
+	clearForm = () => {
+		this.setState({
+			email: '',
+			password:'',
+			name:''
+		})
 	}
 
 	render() {
@@ -53,13 +70,31 @@ class LoginRegister extends React.Component {
 					user
 					?
 					<div>
-						<p>Hello, {user.displayName}</p>
+						<p>Hello,
+
+						{
+							user.displayName
+							?
+							user.displayName
+							:
+							this.state.name
+						}
+						</p>
 						<button onClick={signOut}>Sign Out</button>
 					</div>
 					:
 					<div>
 						<form onSubmit={this.handleSignUp}>
 						<h1>Sign Up</h1>
+						<div className='input'>
+							Name: <input
+							label="Name"
+							type="text"
+							name="name"
+							onChange={this.handleChange}
+							value={this.state.name}
+							/>
+						</div>
 						<div className='input'>
 							Email Address: <input
 							label="Email Address"
